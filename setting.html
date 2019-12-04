@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>settings</title>
+    <link rel="stylesheet" href="titleBar.css"><script src="ace-nonconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+    <script>if (typeof module === 'object') {window.module = module; module = undefined;}
+            
+        </script>
+        <script src="jshanddler/jquery.min.js"></script>
+    <style>
+        .codingScreen{
+        display:grid;
+        z-index: 5;
+        grid-template-columns: auto 1fr;
+        background: rgba(255, 255, 255, 0.3);
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px); 
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+            <div class="titleBar titleBarStyle">
+                    <div id="tbar" class="windowTitle preventSelect draggable">Quark</div>
+                    <div class="windowControls windowControlsStyle ">
+                        <button id="nth"></button><button id="nth"></button>
+                        <button id="quit"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><path fill="#fff" d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg></button>
+                    </div>
+                    <div id="logo" class="preventSelect"><img src="icon.png" alt=""></div>
+            
+            </div>
+            
+        <div class="codingScreen codingScreenStyles">
+                <div id="resizable" class="explorerContainer explorerContainerStyles preventSelect">
+                    <button id="cc">ds</button>
+                </div>
+        </div>
+    </div>
+    <script>
+        const fs = require('fs');
+        var pathslocation2 = './jshanddler/fixedpart.json';
+        var paths2 = require(pathslocation2);
+        document.getElementById('cc').addEventListener('click',()=>{
+            editor.setTheme("ace/theme/crimson_editor");
+        })
+    </script>
+</body>
+</html>

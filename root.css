@@ -1,0 +1,14 @@
+@font-face{
+    font-family: 'consola';
+    src: url(assets/fonts/consola.ttf);
+}
+:root{
+    --mainbg: #141414;
+    --bgtitle: #2d3239;
+    --closebtn: rgb(223, 22, 39);
+    --btnhovermm: #48494c;
+    --titlecolor: #bbbbbb;
+    --sidepanel: #22262c;
+    --expbg:#1f1f1f;
+    --expbg1:linear-gradient(20deg,rgba(138, 21, 138, 0.7),rgba(33, 72, 156, 0.7));
+}

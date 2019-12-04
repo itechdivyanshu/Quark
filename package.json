@@ -1,0 +1,23 @@
+{
+  "name": "quark",
+  "version": "1.0.0",
+  "description": "code editor",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "keywords": [
+    "quark",
+    "editor",
+    "code"
+  ],
+  "author": "itechindrustries",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^6.0.12"
+  },
+  "dependencies": {
+    "node-cmd": "^3.0.0",
+    "python-shell": "^1.0.8"
+  }
+}
