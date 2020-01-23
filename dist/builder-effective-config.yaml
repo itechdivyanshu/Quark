@@ -1,0 +1,6 @@
+directories:
+  output: dist
+  buildResources: build
+appId: com.quark.coding.intelegence
+productName: Quark
+electronVersion: 6.0.12

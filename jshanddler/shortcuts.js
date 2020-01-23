@@ -1,9 +1,17 @@
-$(window).bind("keydown", function (event) { 
+$(window).bind("keydown", function (event) {
 
-    if (event.ctrlKey || event.metaKey) { 
-
-        switch (String.fromCharCode(event.which).toLowerCase()) { 
-
+    if (event.ctrlKey || event.metaKey) {
+      if (event.shiftKey){
+        event.preventDefault();
+        switch (String.fromCharCode(event.which).toLowerCase()) {
+          case 'w':
+              event.preventDefault();
+              removealltab();
+              break;
+        }
+      }
+      else {
+        switch (String.fromCharCode(event.which).toLowerCase()) {
             case 'n':
                 event.preventDefault();
                 createNewFile(0,'');
@@ -22,10 +30,17 @@ $(window).bind("keydown", function (event) {
                 event.preventDefault();
                 hidesidepanel()
                 break;
-
+            case 'r':
+                event.preventDefault();
+                refresh()
+                break;
+            case 'i':
+                event.preventDefault();
+                opensetting()
+                break;
+        }
         }
 
     }
-    
-})
 
+})

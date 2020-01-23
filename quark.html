@@ -10,13 +10,13 @@
     <link rel="stylesheet" href="styleeditor.css">
     <script src="ace-nonconflict/ace.js" type="text/javascript" charset="utf-8"></script>
     <script>if (typeof module === 'object') {window.module = module; module = undefined;}
-            
+
         </script>
         <script src="jshanddler/jquery.min.js"></script>
-     
+
         <script src="jshanddler/jquery.menu.js"></script>
         <style type="text/css" media="screen">
-        #editor { 
+        #editor {
         position: relative;
         top: 0;
         right: 0;
@@ -39,79 +39,24 @@
                         <li>
                             File
                             <ul>
-                                
+
                                <li class="icon save" onclick='createNewFile()'><a href="#">New File<span>Ctrl+N</span></a></li>
-                                <li>New Folder</li>
-                                
+                                <li onclick='openfolderindock()'><a href="#">New Folder</a></li>
+
                                 <li class="separator"></li>
-                                <li class="icon save" onclick='saveFile()'><a href="javascript:void(0)">Save<span>Ctrl+S</span></a></li>
-                                
+                                <li class="icon save" onclick='savefile()'><a href="javascript:void(0)">Save<span>Ctrl+S</span></a></li>
+
                                 <li class="icon save" onclick="showSaveDialogAndSaveFile()"><a href="javascript:void(0)">Save As</a></li>
-                                
+
                                 <li class="separator"></li>
-                                
-                            </ul>
-                        </li>
-                        <li>
-                            View
-                            <ul>
-                                <li>Documents
-                                    <ul>
-                                        <li>All</li>
-                                        <li class="separator"></li>
-                                        <li>Unfinished</li>
-                                        <li>Closed</li>
-                                    </ul>
-                                </li>
-                                <li><a href="/#!/products">Products</a></li>
-                                <li class="separator"></li>
-                                <li>
-                                    First level
-                                    <ul>
-                                        <li>
-                                            Second level
-                                            <ul>
-                                                <li>
-                                                    Third level menu item
-                                                </li>
-                                                <li>
-                                                Third level
-                                                <ul>
-                                                        <li>
-                                                            Forth level menu item 1
-                                                        </li>
-                                                        <li>
-                                                            Forth level menu item 2
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                                <li class="separator"></li>
-                                                <li>Another third level menu item</li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            Items will make menus stretch as needed
-                                        </li>
-                                        <li class="separator"></li>
-                                        <li>
-                                             Another menu item
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="separator"></li>
-                                <li>Reports
-                                    <ul>
-                                        <li>Sell history</li>
-                                        <li>Clients history</li>
-                                    </ul>
-                                </li>
+
                             </ul>
                         </li>
                         <li>
                             Window
                             <ul>
                                 <li class="icon save"><a href="javascript:void(0)">Full Screen<span>F11</span></a></li>
-                               
+
                                 <li>
                                     <a href="javascript:void(0)" onclick='toggleWidgets()'>Widgets<span><input type='checkbox' id='widgetCheckbox'></span></a>
                                 </li>
@@ -121,62 +66,49 @@
                                 </li>
                             </ul>
                         </li>
-        
+
                         <li>
                             Tools
                             <ul>
-                                <li>Load Snippets
+                                <li>Language Supported
                                     <ul>
                                         <li>HTML</li>
                                         <li>CSS</li>
-                                        <li>JS</li>
-                                        <li>HTML</li>
-                                        <li>CSS</li>
-                                        <li>JS</li>
-                                        <li>HTML</li>
-                                        <li>CSS</li>
-                                        <li>JS</li>
-                                        <li>HTML</li>
-                                        <li>CSS</li>
-                                        <li>JS</li>
+                                        <li>CPP</li>
+                                        <li>C#</li>
+                                        <li>JSON</li>
+                                        <li>DART</li>
+                                        <li>JAVA</li>
+                                        <li>JAVASCRIPT</li>
+                                        <li>KOTLIN</li>
+                                        <li>OBJECTIVE C</li>
+                                        <li>PHP</li>
+                                        <li>PYTHON</li>
+                                        <li>RUBY</li>
                                     </ul>
                                 </li>
                                 </ul>
                         </li>
-        
+
                         <li>
                             Settings
                             <ul>
-                                <li onclick='settings("theme")'>Themes</li>
-                                <li class="separator"></li>
-                                <li>Upgrade account</li>
-                                <li>Registration</li>
-                                <li class="separator"></li>
-                                <li>Contact us</li>
+                                <li onclick='settings("fontsize1")'>fontsize</li>
+                                <li onclick='settings("theme1")'>Themes</li>
+                                <li onclick='settings("shortcut1")'>shortcut</li>
+                                <li onclick='settings("update1")'>About us</li>
                             </ul>
                         </li>
-        
-                        <li>
-                            Help
-                            <ul>
-                                <li onclick='showShortcuts()'>Shortcuts</li>
-                                <li class="separator"></li>
-                                <li>Upgrade account</li>
-                                <li>Registration</li>
-                                <li class="separator"></li>
-                                <li>Contact us</li>
-                            </ul>
-                        </li>
-                    </ul>        
-                </div> 
+                    </ul>
+                </div>
             <div id="logo" class="preventSelect"><img src="icon.png" alt=""></div>
-    
+
         </div>
         <div class="codingScreen codingScreenStyles">
             <div id="resizable" class="explorerContainer explorerContainerStyles preventSelect">
 
                             <div class="explorer-title">EXPLORER</div>
-                            
+
                             <div id="filehandller">
                                 <label for="openfile" id="openfilelabel"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
                                     <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
@@ -363,7 +295,7 @@
                                     ACV0RVh0ZGF0ZTptb2RpZnkAMjAxOS0xMC0yNVQxMzo1ODowMSswMzowMJjKFnAAAAAASUVORK5C
                                     YII=" />
                                     </svg>
-                                    
+
                                     </label>
                                 <input type="button" id="zoomhbtn" />
                                 <label for="runbtn" id="runbtnlabel"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
@@ -423,7 +355,7 @@
                                     MC0yNVQxMzo1NTozNyswMzowMPE2F6UAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTktMTAtMjVUMTM6
                                     NTU6MzcrMDM6MDCAa68ZAAAAAElFTkSuQmCC" />
                                     </svg>
-                                    
+
                                     </label>
                                 <input type="button" id="runbtn" />
                             </div>
@@ -470,12 +402,12 @@
                     </g>
                     </g>
                     </svg> &nbsp; </span><div id="folderltitle">NO FOLDER</div></div>
-                                <div id="autoscroll" class="folderfiles griditem-files">
+                                <div onclick="openfolderfile(event)" id="autoscroll" class="folderfiles griditem-files">
 
                                 </div>
-                            
-                            
-                        </div>   
+
+
+                        </div>
                         <div id="filehandller" class="bottomf">
                             <label id="decreasefontlabel"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
                                 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
@@ -744,13 +676,13 @@
                                 MOCI45oAAAAASUVORK5CYII=" />
                                 </svg>
                                 </label>
-                        </div> 
+                        </div>
                         <div id="filenotsaved">
                             <div class="filenotsaved">File Not Saved</div>
                             <div id="lastlettercont">Last letter:<div id="lastletter"></div></div>
                         </div>
-                        
-            </div> 
+
+            </div>
             <div class="editorContainer" id="griding mirror">
 
                 <div id="editor"></div>
@@ -813,8 +745,138 @@
                     </svg>
                     </div>
 
-            </div>   
+            </div>
         </div>
+    </div>
+    <div id="settings">
+      <div id="closesetting" class="closesetting">X</div>
+      <div class="gridsetcont">
+        <div class="gridsetitem">
+          <div id="fontsize" class="griditemrow">
+            Font Size
+          </div>
+          <div id="theme" class="griditemrow">
+            Themes
+          </div>
+          <div id="shortcut" class="griditemrow">
+            Shortcuts
+          </div>
+          <div id="update" class="griditemrow">
+            About us
+          </div>
+        </div>
+        <div class="gridsetitem">
+          <div id="fontsize1" class="fontsize">
+            <div class="group">
+              <input id="defaultinputsize" class="input" type="text" required>
+              <span class="highlight"></span>
+              <span class="bar"></span>
+              <label class="label">Default Font Size</label>
+            </div>
+            <div class="group">
+              <input id="newfontsize" class="input" type="text" required>
+              <span class="highlight"></span>
+              <span class="bar"></span>
+              <label class="label">New Font Size</label>
+            </div>
+            <div class="group">
+              <input id="defaulttab" class="input" type="text" required>
+              <span class="highlight"></span>
+              <span class="bar"></span>
+              <label class="label">Default Tab Size</label>
+            </div>
+            <div id="plus" class="plus">
+              +
+            </div>
+            <div id="minus" class="minus">
+              -
+            </div>
+            <div onclick="editorconfigsetting()" class="setbtn">
+              Apply
+            </div>
+          </div>
+          <div id="theme1" class="theme">
+            <div class="select">
+              <select name="slct" id="defaulttheme">
+                <option value="chaos">Chaos</option>
+                <option value="cobalt">Cobalt</option>
+                <option value="crimson_editor">Crimson_editor</option>
+                <option value="monokai">Monokai</option>
+                <option value="twilight">Twilight</option>
+                <option value="xcode">Xcode</option>
+              </select>
+            </div>
+            <div onclick="editorconfigsetting()" class="setbtn cet">
+              Apply
+            </div>
+          </div>
+          <div id="shortcut1" class="shortcut">
+            <div class="stcut">
+              <u> <b>Line Operations</b> </u> <br>
+                1.ctrl+- - zoom out <br>
+                2.ctrl+0 - zoom in <br>
+                3.ctrl+n - new file<br>
+                4.ctrl+s - save file <br>
+                5.ctrl+b - hide slider <br>
+                6.ctrl-r - refresh <br>
+                7.ctrl+i - open setting <br>
+                8.ctrl-w - close file <br>
+                9.ctrl+shift+w - close all files <br>
+                10.Ctrl-D - Remove line <br>
+                11.Alt-Shift-Down - Copy lines down <br>
+                12.Alt-Shift-Up - Copy lines up <br>
+                13.Alt-Down - Move lines down <br>
+                14.Alt-Up - Move lines up <br>
+                15.Alt-Delete - Remove upto line end <br>
+                16.Alt-Backspace - 	Remove upto linestart <br>
+                17.Ctrl-Backspace - Remove word left <br>
+                18.Ctrl-Delete - Remove word right <br>
+              <u> <b>Others</b> </u> <br>
+                19.Tab -	Indent <br>
+                20.Shift-Tab - 	Outdent <br>
+                21.Ctrl-Z - Undo <br>
+                22.Ctrl-Shift-Z, Ctrl-Y - Redo <br>
+                23.Ctrl-/ - Toggle comment <br>
+                24.Insert - overwrite <br>
+              <u> <b>Go To</b> </u> <br>
+                25.left - go left <br>
+                26.right - go right <br>
+                27.Ctrl-Left	- Go to word left <br>
+                28.Ctrl-Right - Go to word right <br>
+                29.Up - go up <br>
+                30.down - go down <br>
+              <u><b>Selection</b></u> <br>
+                31.ctrl+a - select all <br>
+                32.Shift-Left - Select left <br>
+                33.Shift-Right - Select right <br>
+                34.Ctrl-Shift-Left - Select word left <br>
+                35.Ctrl-Shift-Right - Select word right <br>
+                36.Shift-Home - 	Select line start <br>
+                37.Shift-End - Select line end <br>
+              <u><b>Multicursor</b></u><br>
+                38.ctrl+click - multicursor at places of onclick <br>
+                39.Ctrl-Alt-Up - 	Add multi-cursor above <br>
+                40.Ctrl-Alt-Down - Add multi-cursor below <br>
+                41.Ctrl-Alt-Right - 	Add next occurrence to multi-selection <br>
+                42.Ctrl-Alt-Left - Add previous occurrence to multi-selection <br>
+
+            </div>
+          </div>
+          <div id="update1" class="update">
+            <div class="imgabt">
+              <img src="itech.jpg" title="Itech Divyanshu">
+            </div>
+            <div id="quarkabt">
+              <img src="icon.png" title="Quark"><div>
+                QUARK
+              </div>
+            </div>
+            <div>
+              <b><></b> with <span style="color: #e25555;">❤</span> by <br> <b>Itech Indrustries</b>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <script src="jshanddler/titlebar.js"></script>
     <script src="jshanddler/codeslatefinal.js"></script>

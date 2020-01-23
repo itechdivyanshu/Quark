@@ -1,1 +1,1 @@
-all set  minified code working
+some minute errors, not completed

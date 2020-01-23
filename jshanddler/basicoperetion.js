@@ -7,6 +7,7 @@ $(document).ready(function(){
         addfoldertoexplorer(paths2["lastfolder"])
     }
     $('.ace_scrollbar-h').height(13)
+    document.getElementById('defaultinputsize').value=paths2["default_fontsize"];
   });
   if(paths2["win_state"] == 1){
     remote.getCurrentWindow().maximize();
@@ -35,29 +36,55 @@ function hideopedfiles(x){
 }
 var pathslocation = './jshanddler/paths.json';
 //var paths = require(pathslocation);
+function removealltab(){
+  document.getElementById('autoscrol').innerHTML = '';
+  fileTabCount = 0;
+  editor.setValue('');
+  fs.writeFile(pathslocation,JSON.stringify(clear),(err)=>{
+      if (err) return console.log(err);
+  })
+}
 function removetab(){
-    var id= document.querySelector("#activexp").parentNode.parentNode.id;
+    var id= document.querySelector("#activexp").parentNode;
+    document.getElementById('autoscrol').removeChild(id);
+    if (!document.getElementById('autoscrol').firstElementChild){
+      fileTabCount = 0;
+    }
+    else {
+      document.getElementById('autoscrol').firstElementChild.firstElementChild.setAttribute("id", "activexp");
+      if (paths[document.getElementById('autoscrol').firstElementChild.id] != ''){
+          fs.readFile(paths[document.getElementById('autoscrol').firstElementChild.id],(err, data) => {
+              if (err) throw err;
+              editor.setValue(data.toString());
+
+          });
+      }
+      else{editor.setValue('');}
+    }
     //var uid = id.split('_').pop();
     //console.log(id,uid && paths[upid]!='')
     //var upid=uid-1;
     /*if (uid != 1 && paths[upid]){
         upid = "codeslate_"+upid;
-        fs.readFile(paths[upid],(err, data) => { 
+        fs.readFile(paths[upid],(err, data) => {
             if (err) throw err;
             editor.setValue(data.toString());
-            
+
         });
         $("#"+upid+":nth-child(2)").attr('id', 'activexp');
-        
+
     }*/
     //$("#"+upid+":nth-child(2)").attr('id', 'activexp');
     //$('#'+id).child().remove();
+
+
+    /*
     document.getElementById(id).innerHTML = '';
     fileTabCount = 0;
     editor.setValue('');
     fs.writeFile(pathslocation,JSON.stringify(clear),(err)=>{
         if (err) return console.log(err);
-    })
+    })*/
 }
 function hidesidepanel(){
     if($('#resizable').width()==245)
@@ -112,5 +139,62 @@ document.getElementById('increasefontlabel').addEventListener('click',()=>{
 })
 const main = remote.require('./main.js')
 document.getElementById('settingsbtnlabel').addEventListener('click',()=>{
-    main.openwindowS('')
+    document.getElementById('settings').style.display="block";
 })
+document.getElementById('shortcutbtnlabel').addEventListener('click',()=>{
+    settings('shortcut1')
+})
+document.getElementById('themebtnlabel').addEventListener('click',()=>{
+    settings('theme1')
+})
+function opensetting(){
+  document.getElementById('settings').style.display="block";
+}
+document.getElementById('closesetting').addEventListener('click',()=>{
+    document.getElementById('settings').style.display="none";
+})
+document.getElementById('fontsize').addEventListener('click',()=>{
+    document.getElementById('fontsize1').style.display="block";
+    document.getElementById('theme1').style.display="none";
+    document.getElementById('shortcut1').style.display="none";
+    document.getElementById('update1').style.display="none";
+})
+document.getElementById('theme').addEventListener('click',()=>{
+    document.getElementById('fontsize1').style.display="none";
+    document.getElementById('theme1').style.display="block";
+    document.getElementById('shortcut1').style.display="none";
+    document.getElementById('update1').style.display="none";
+})
+document.getElementById('shortcut').addEventListener('click',()=>{
+    document.getElementById('fontsize1').style.display="none";
+    document.getElementById('theme1').style.display="none";
+    document.getElementById('shortcut1').style.display="block";
+    document.getElementById('update1').style.display="none";
+})
+document.getElementById('update').addEventListener('click',()=>{
+    document.getElementById('fontsize1').style.display="none";
+    document.getElementById('theme1').style.display="none";
+    document.getElementById('shortcut1').style.display="none";
+    document.getElementById('update1').style.display="block";
+})
+var list = ['fontsize1','theme1','shortcut1','update1']
+function settings(feature){
+
+  var i;
+for (i = 0; i < 4; i++) {
+  document.getElementById(list[i]).style.display="none";
+}
+document.getElementById(feature).style.display="block";
+document.getElementById('settings').style.display="block";
+}
+var si=paths2["default_fontsize"];
+document.getElementById('plus').addEventListener('click',()=>{
+  si+=1;
+  document.getElementById('newfontsize').value=si;
+})
+document.getElementById('minus').addEventListener('click',()=>{
+  si-=1;
+  document.getElementById('newfontsize').value=si;
+})
+document.getElementById('defaulttheme').value=paths2['default_theme'];
+document.getElementById('defaulttab').value=paths2['default_tabsize'];

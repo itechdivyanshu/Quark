@@ -1,11 +1,11 @@
 {
-  "lastfolder": "D:\\quark v1.0.0\\test files",
+  "lastfolder": "D:\\quark v1.0.1\\test files",
   "win_state": 0,
-  "default_fontsize": 17,
+  "default_fontsize": "20",
   "default_theme": "chaos",
-  "default_tabsize": 4,
-  "fontsize": 36,
-  "theme": "chaos",
+  "default_tabsize": "4",
+  "fontsize": "",
+  "theme": "",
   "tabsize": 0,
   "transperent": 0
 }
