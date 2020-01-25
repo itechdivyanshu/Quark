@@ -56,6 +56,13 @@ function removetab(){
           fs.readFile(paths[document.getElementById('autoscrol').firstElementChild.id],(err, data) => {
               if (err) throw err;
               editor.setValue(data.toString());
+              var fileName = document.getElementById('autoscrol').firstElementChild.firstElementChild.innerHTML;
+              var filetype = fileName.split('.').pop();
+              var typeext = ['cpp','cs','css','dart','json','html','java','js','kt','m','php','py','rb']
+              var typefile = ['c_cpp','csharp','css','dart','hjson','html','java','javascript','kotlin','objectivec','php','python','ruby']
+              var indext = typeext.indexOf(filetype);
+              filetype = typefile[indext];
+              editor.session.setMode("ace/mode/"+filetype);
 
           });
       }
