@@ -1,3 +1,3 @@
 public static void main(string args[]){
-    System.out.println('safsdf')
+    System.out.println('safsdf');
 }

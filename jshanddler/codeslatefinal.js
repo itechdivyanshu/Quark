@@ -183,8 +183,36 @@ function openedior(e){
 
 function openfolderfile(e){
   if(!e.target.innerHTML.toString().includes("<label ")){
-  var fileaddress= paths2["lastfolder"]+'\\'+e.target.innerHTML;
-  createNewFile(1,fileaddress)
+  var len = document.getElementById('autoscrol').children;
+  var present = false;
+  for (var i = 0; i < len.length; i++) {
+    if (!document.getElementById('autoscrol').firstElementChild) { break; }
+    var elemname = len[i].firstElementChild.innerHTML;
+    if (elemname === e.target.innerHTML) {
+      present = true;
+      document.querySelector("#activexp").setAttribute("id","");
+      len[i].firstElementChild.setAttribute("id", "activexp");
+      var address = paths[len[i].id]
+      fs.readFile(address,(err, data) => {
+        if (err) throw err;
+        editor.setValue(data.toString());})
+      var fileName = elemname;
+      var filetype = fileName.split('.').pop();
+      var typeext = ['cpp','cs','css','dart','json','html','java','js','kt','m','php','py','rb']
+      var typefile = ['c_cpp','csharp','css','dart','hjson','html','java','javascript','kotlin','objectivec','php','python','ruby']
+      var indext = typeext.indexOf(filetype);
+      filetype = typefile[indext];
+      editor.session.setMode("ace/mode/"+filetype);
+      break;
+    }
+  }
+  if (present) {
+    console.log('got it');
+  }
+  else {
+    var fileaddress= paths2["lastfolder"]+'\\'+e.target.innerHTML;
+    createNewFile(1,fileaddress)
+  }
 }
 else {
   alert('Click on the text only!')
